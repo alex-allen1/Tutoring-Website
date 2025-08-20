@@ -19,7 +19,7 @@
                 <div class="logo">
                     <h1>A* Academy</h1>
                 </div>
-                <nav class="nav">
+                <nav id="primary-navigation" class="nav" aria-label="Primary">
                     <ul class="nav-list">
                         <li><a href="#home" class="nav-link">Home</a></li>
                         <li><a href="#about" class="nav-link">About</a></li>
@@ -29,7 +29,7 @@
                         <li><a href="#contact" class="nav-link">Contact</a></li>
                     </ul>
                 </nav>
-                <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-controls="primary-navigation" aria-expanded="false">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -70,21 +70,77 @@
                 </div>
                 <div class="about-content">
                     <div class="about-text">
-                        <div class="about-item">
-                            <h3>Education</h3>
-                            <p>Master's degree in Mathematics from University of Oxford</p>
-                        </div>
-                        <div class="about-item">
-                            <h3>Experience</h3>
-                            <p>5+ years of tutoring experience with 95% A* success rate</p>
-                        </div>
-                        <div class="about-item">
-                            <h3>Specialties</h3>
-                            <p>GCSE Maths, A-Level Physics, Chemistry, and Advanced Mathematics</p>
-                        </div>
+                        <article class="cv-group" aria-labelledby="cv-education">
+                            <h3 id="cv-education">Education</h3>
+                            <ul class="timeline" aria-label="Education history">
+                                <li class="timeline-item">
+                                    <div class="timeline-point" aria-hidden="true"></div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-header">
+                                            <h4 class="timeline-title">MSc Mathematics</h4>
+                                            <span class="timeline-meta">University of Oxford · 2018 – 2019</span>
+                                        </div>
+                                        <p class="timeline-subtitle">Focus on Applied Mathematics and Statistics</p>
+                                    </div>
+                                </li>
+                                <li class="timeline-item">
+                                    <div class="timeline-point" aria-hidden="true"></div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-header">
+                                            <h4 class="timeline-title">BSc Physics</h4>
+                                            <span class="timeline-meta">Imperial College London · 2015 – 2018</span>
+                                        </div>
+                                        <p class="timeline-subtitle">First-Class Honours</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </article>
+                        <article class="cv-group" aria-labelledby="cv-experience">
+                            <h3 id="cv-experience">Experience</h3>
+                            <ul class="timeline" aria-label="Tutoring experience">
+                                <li class="timeline-item">
+                                    <div class="timeline-point" aria-hidden="true"></div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-header">
+                                            <h4 class="timeline-title">Lead Tutor</h4>
+                                            <span class="timeline-meta">A* Academy · 2020 – Present</span>
+                                        </div>
+                                        <ul class="bullet-list">
+                                            <li>Designed personalized learning plans for GCSE and A-Level students</li>
+                                            <li>95% of students achieved target grades (A/A* or grade 8–9)</li>
+                                            <li>Specialized in exam strategies and problem-solving techniques</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="timeline-item">
+                                    <div class="timeline-point" aria-hidden="true"></div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-header">
+                                            <h4 class="timeline-title">STEM Mentor</h4>
+                                            <span class="timeline-meta">Local Schools Partnership · 2018 – 2020</span>
+                                        </div>
+                                        <ul class="bullet-list">
+                                            <li>Delivered weekly enrichment workshops in Maths and Physics</li>
+                                            <li>Mentored high-achieving students for Oxbridge applications</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </article>
+                        <article class="cv-group" aria-labelledby="cv-skills">
+                            <h3 id="cv-skills">Skills</h3>
+                            <div class="skill-tags" role="list" aria-label="Key tutoring skills">
+                                <span class="tag" role="listitem">GCSE Maths</span>
+                                <span class="tag" role="listitem">A-Level Physics</span>
+                                <span class="tag" role="listitem">A-Level Chemistry</span>
+                                <span class="tag" role="listitem">Further Maths</span>
+                                <span class="tag" role="listitem">Exam Technique</span>
+                                <span class="tag" role="listitem">Study Planning</span>
+                            </div>
+                        </article>
                     </div>
                     <div class="about-image">
-                        <div class="about-placeholder">
+                        <div class="about-placeholder" role="img" aria-label="Tutor illustration placeholder">
                             <div class="placeholder-icon">👨‍🏫</div>
                             <p>Expert Tutor</p>
                         </div>

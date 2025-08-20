@@ -82,6 +82,18 @@ body {
     background-color: var(--white);
 }
 
+/* Anchor offset for sticky header */
+section {
+    scroll-margin-top: 80px;
+}
+
+/* Accessible focus styles */
+:focus-visible {
+    outline: 3px solid rgb(99 102 241 / 0.5);
+    outline-offset: 2px;
+    border-radius: var(--radius);
+}
+
 /* Container */
 .container {
     max-width: 1200px;
@@ -97,6 +109,14 @@ body {
     top: 0;
     z-index: 100;
     box-shadow: var(--shadow-sm);
+}
+
+.header.scrolled {
+    box-shadow: var(--shadow-md);
+    border-bottom-color: var(--gray-300);
+    background-color: rgba(255, 255, 255, 0.9);
+    -webkit-backdrop-filter: saturate(180%) blur(6px);
+    backdrop-filter: saturate(180%) blur(6px);
 }
 
 .header-content {
@@ -180,12 +200,12 @@ body {
 @media (max-width: 768px) {
     .nav {
         position: fixed;
-        top: 100%;
+        top: 64px;
         left: 0;
         width: 100%;
         background-color: var(--white);
         box-shadow: var(--shadow-lg);
-        transform: translateY(-100%);
+        transform: translateY(-110%);
         transition: var(--transition);
         z-index: 99;
     }
@@ -204,6 +224,16 @@ body {
         display: block;
         padding: var(--spacing-3) 0;
         font-size: var(--font-size-lg);
+    }
+}
+
+/* Reduce motion preference */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
     }
 }
 
@@ -266,7 +296,7 @@ body {
 /* Responsive Design */
 @media (max-width: 768px) {
     .nav {
-        display: none;
+        display: block;
     }
     
     .mobile-menu-toggle {
@@ -447,21 +477,56 @@ body {
     align-items: center;
 }
 
-.about-item {
-    margin-bottom: var(--spacing-8);
-}
-
-.about-item h3 {
+/* CV layout */
+.cv-group { margin-bottom: var(--spacing-12); }
+.cv-group h3 {
     font-size: var(--font-size-xl);
-    font-weight: 600;
+    font-weight: 700;
     color: var(--gray-900);
-    margin-bottom: var(--spacing-2);
+    margin-bottom: var(--spacing-4);
 }
 
-.about-item p {
-    color: var(--gray-600);
-    line-height: 1.6;
+.timeline { list-style: none; padding-left: 0; position: relative; }
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: var(--gray-200);
 }
+.timeline-item { display: flex; gap: var(--spacing-4); position: relative; padding-left: var(--spacing-6); margin-bottom: var(--spacing-6); }
+.timeline-point {
+    position: absolute;
+    left: 2px;
+    width: 16px;
+    height: 16px;
+    border-radius: 999px;
+    background-color: var(--primary-color);
+    margin-top: 6px;
+    box-shadow: 0 0 0 4px rgb(99 102 241 / 0.15);
+}
+.timeline-content { flex: 1; }
+.timeline-header { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: var(--spacing-2); }
+.timeline-title { font-weight: 600; color: var(--gray-900); }
+.timeline-meta { color: var(--gray-500); font-size: var(--font-size-sm); }
+.timeline-subtitle { color: var(--gray-600); }
+
+.bullet-list { padding-left: 1.25rem; }
+.bullet-list li { list-style: disc; margin: var(--spacing-2) 0; color: var(--gray-700); }
+
+.skill-tags { display: flex; flex-wrap: wrap; gap: var(--spacing-2); }
+.tag {
+    display: inline-block;
+    padding: 0.35rem 0.6rem;
+    border-radius: 999px;
+    background-color: var(--gray-100);
+    border: 1px solid var(--gray-200);
+    color: var(--gray-700);
+    font-size: var(--font-size-sm);
+}
+.tag:hover { background-color: var(--gray-50); }
 
 .about-placeholder {
     background: linear-gradient(135deg, var(--secondary-color), var(--secondary-light));
@@ -471,6 +536,10 @@ body {
     color: var(--white);
     box-shadow: var(--shadow-lg);
 }
+
+/* Reveal animation */
+.reveal { opacity: 0; transform: translateY(12px); transition: opacity .6s ease, transform .6s ease; }
+.reveal.animate-in { opacity: 1; transform: none; }
 
 /* Subjects Section */
 .subjects {

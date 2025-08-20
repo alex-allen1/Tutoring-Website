@@ -5,8 +5,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (mobileMenuToggle && nav) {
         mobileMenuToggle.addEventListener('click', function() {
-            nav.classList.toggle('nav-open');
+            const isOpen = nav.classList.toggle('nav-open');
             mobileMenuToggle.classList.toggle('active');
+            mobileMenuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
         });
     }
     
@@ -30,6 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (nav.classList.contains('nav-open')) {
                     nav.classList.remove('nav-open');
                     mobileMenuToggle.classList.remove('active');
+                    mobileMenuToggle.setAttribute('aria-expanded', 'false');
                 }
             }
         });
@@ -40,6 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!nav.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
             nav.classList.remove('nav-open');
             mobileMenuToggle.classList.remove('active');
+            mobileMenuToggle.setAttribute('aria-expanded', 'false');
         }
     });
 });
@@ -119,6 +122,7 @@ const observer = new IntersectionObserver(function(entries) {
 document.addEventListener('DOMContentLoaded', function() {
     const sections = document.querySelectorAll('section');
     sections.forEach(section => {
+        section.classList.add('reveal');
         observer.observe(section);
     });
 });
