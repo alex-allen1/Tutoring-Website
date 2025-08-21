@@ -145,6 +145,38 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 2000);
         });
     }
+    
+    document.querySelector('.contact-form form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const formData = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            subject: document.getElementById('subject').value,
+            message: document.getElementById('message').value
+        };
+
+        // Create mailto link with form data
+        const mailtoLink = `mailto:alexallenaa@icloud.com?subject=Tutoring Enquiry: ${formData.subject}&body=Name: ${formData.name}%0D%0AEmail: ${formData.email}%0D%0ASubject: ${formData.subject}%0D%0A%0D%0AMessage:%0D%0A${formData.message}`;
+
+        // Open default email client
+        window.location.href = mailtoLink;
+    });
+});
+
+// Simplified Pricing Section Interaction
+document.addEventListener('DOMContentLoaded', function() {
+    const pricingCards = document.querySelectorAll('.pricing-card');
+    
+    pricingCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.classList.add('hover');
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.classList.remove('hover');
+        });
+    });
 });
 
 function validateField(field) {

@@ -470,6 +470,45 @@ section {
     background-color: var(--white);
 }
 
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.about-section {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.about-me .about-content {
+    display: flex;
+    gap: 2rem;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-image {
+    flex: 0 0 200px;
+}
+
+.tutor-img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.become-tutor {
+    text-align: center;
+    background: #E0F7FE;
+    margin-top: 2rem;
+}
+
 .about-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1005,5 +1044,18 @@ section {
     
     .faq-answer[aria-hidden="false"] {
         padding: 0 var(--spacing-4) var(--spacing-4);
+    }
+    
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-me .about-content {
+        flex-direction: column;
+    }
+
+    .about-image {
+        max-width: 200px;
+        margin: 0 auto;
     }
 }
