@@ -503,6 +503,62 @@ section {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
+/* About Academy Styling */
+.about-academy .about-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-8);
+}
+
+.academy-intro {
+    text-align: center;
+    margin-bottom: var(--spacing-6);
+}
+
+.academy-intro .lead {
+    font-size: var(--font-size-lg);
+    font-weight: 500;
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0;
+    font-style: italic;
+}
+
+.academy-points {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-6);
+}
+
+.point {
+    padding: var(--spacing-6);
+    background-color: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--primary-color);
+    transition: var(--transition);
+}
+
+.point:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.point h4 {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-3);
+    margin-top: 0;
+}
+
+.point p {
+    color: var(--gray-700);
+    line-height: 1.6;
+    margin: 0;
+    font-size: var(--font-size-base);
+}
+
 .become-tutor {
     text-align: center;
     background: #E0F7FE;
